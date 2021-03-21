@@ -1,0 +1,15 @@
+# OS detritus
+.DS_Store
+Desktop.ini
+._*
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# Build outputs
+*.pyc
+*.out
+bazel-out/
+
+# Dotfiles repo
+.dotfiles
