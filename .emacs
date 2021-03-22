@@ -1,4 +1,9 @@
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
 (add-to-list 'load-path "~/.emacs.d/lisp")
+(require 'rustdev)
 
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
@@ -24,10 +29,21 @@
 (add-to-list 'auto-mode-alist '("\\.bzl\\'" . python-mode))
 
 (custom-set-variables
- '(transient-mark-mode t)
- '(line-number-mode t)
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
  '(column-number-mode t)
- '(font-user-system-font t))
+ '(custom-enabled-themes '(tango-dark))
+ '(custom-safe-themes
+   '("51ec7bfa54adf5fff5d466248ea6431097f5a18224788d0bd7eb1257a4f7b773" "e6df46d5085fde0ad56a46ef69ebb388193080cc9819e2d6024c9c6e27388ba9" default))
+ '(font-user-system-font t)
+ '(line-number-mode t)
+ '(package-selected-packages
+   '(solarized-theme zenburn-theme yasnippet use-package toml-mode rustic lsp-ui flycheck exec-path-from-shell company))
+ '(transient-mark-mode t))
 
 (add-hook 'server-switch-hook
           (lambda ()
@@ -37,10 +53,16 @@
               (local-set-key (kbd "C-x k") 'server-kill-buffer)
               (local-set-key (kbd "C-x C-k") 'server-kill-buffer))))
 
-(defun byte-compile-init-file ()
-  (when (equal user-init-file buffer-file-emacs)
-    (when (file-exists-p (concat user-init-file ".elc"))
-      (delete-file (concat user-init-file ".elc")))
-    (byte-compile-file user-init-file)))
-(add-hook 'after-save-hook 'byte-compile-init-file)
+;; (defun byte-compile-init-file ()
+;;   (when (equal user-init-file (or buffer-file-emacs ""))
+;;     (when (file-exists-p (concat user-init-file ".elc"))
+;;       (delete-file (concat user-init-file ".elc")))
+;;     (byte-compile-file user-init-file)))
+;; (add-hook 'after-save-hook 'byte-compile-init-file)
 (server-start)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
