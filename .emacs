@@ -50,8 +50,8 @@
             (when (current-local-map)
               (use-local-map (copy-keymap (current-local-map))))
             (when server-buffer-clients
-              (local-set-key (kbd "C-x k") 'server-kill-buffer)
-              (local-set-key (kbd "C-x C-k") 'server-kill-buffer))))
+              (local-set-key (kbd "C-x k") 'kill-buffer)
+              (local-set-key (kbd "C-x C-k") 'kill-buffer))))
 
 ;; (defun byte-compile-init-file ()
 ;;   (when (equal user-init-file (or buffer-file-emacs ""))
