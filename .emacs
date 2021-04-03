@@ -1,6 +1,12 @@
 (require 'package)
-(package-initialize)
 (setq package-user-dir (expand-file-name "elpa/" user-emacs-directory))
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+(setq package-archives
+   (quote
+    (("tromey" . "http://tromey.com/elpa/")
+     ("gnu" . "https://elpa.gnu.org/packages/")
+     ("melpa" . "https://melpa.org/packages/"))))
+(package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (require 'rustdev)
@@ -43,21 +49,16 @@
  '(debug-on-error t)
  '(font-user-system-font t)
  '(line-number-mode t)
- '(lsp-eldoc-render-all t t)
- '(lsp-idle-delay 0.6 t)
+ '(lsp-eldoc-render-all t)
+ '(lsp-idle-delay 0.6)
  '(lsp-rust-analyzer-cargo-watch-command "clippy" t)
  '(lsp-rust-analyzer-server-display-inlay-hints t t)
  '(lsp-ui-doc-enable nil t)
  '(lsp-ui-peek-always-show t t)
  '(lsp-ui-sideline-show-hover t t)
- '(package-archives
-   (quote
-    (("tromey" . "http://tromey.com/elpa/")
-     ("gnu" . "https://elpa.gnu.org/packages/")
-     ("melpa" . "https://stable.melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (gnu-elpa-keyring-update lsp-mode solarized-theme zenburn-theme yasnippet use-package toml-mode rustic lsp-ui flycheck exec-path-from-shell company)))
+    (use-package-hydra markdown-mode+ gnu-elpa-keyring-update lsp-mode solarized-theme zenburn-theme yasnippet use-package toml-mode rustic lsp-ui flycheck exec-path-from-shell company)))
  '(transient-mark-mode t))
 
 (add-hook 'server-switch-hook
