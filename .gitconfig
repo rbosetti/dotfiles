@@ -1,0 +1,10 @@
+[core]
+	excludesfile = /Users/rlb/.gitignore
+[user]
+	name = Randall Bosetti
+	email = rbosetti@gmail.com
+[credential]
+	helper = osxkeychain
+[alias]
+	st = status
+	s = status
