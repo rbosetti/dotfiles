@@ -42,7 +42,7 @@
  '(font-user-system-font t)
  '(line-number-mode t)
  '(package-selected-packages
-   '(solarized-theme zenburn-theme yasnippet use-package toml-mode rustic lsp-ui flycheck exec-path-from-shell company))
+   '(google-c-style solarized-theme zenburn-theme yasnippet use-package toml-mode rustic lsp-ui flycheck exec-path-from-shell company))
  '(transient-mark-mode t))
 
 (add-hook 'server-switch-hook
