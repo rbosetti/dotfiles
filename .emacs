@@ -4,6 +4,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (require 'rustdev)
+(use-package google-c-style)
 
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
@@ -35,6 +36,8 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
+ '(c++-mode-hook '((lambda nil google-set-c-style)))
+ '(c-mode-common-hook '((lambda nil google-set-c-style)))
  '(column-number-mode t)
  '(custom-enabled-themes '(tango-dark))
  '(custom-safe-themes
@@ -42,9 +45,10 @@
  '(font-user-system-font t)
  '(line-number-mode t)
  '(package-selected-packages
-   '(google-c-style solarized-theme zenburn-theme yasnippet use-package toml-mode rustic lsp-ui flycheck exec-path-from-shell company))
+   '(gn-mode google-c-style solarized-theme zenburn-theme yasnippet use-package toml-mode rustic lsp-ui flycheck exec-path-from-shell company))
  '(transient-mark-mode t))
 
+(add-hook 'c-mode-common-hook google-set-c-style)
 (add-hook 'server-switch-hook
           (lambda ()
             (when (current-local-map)
