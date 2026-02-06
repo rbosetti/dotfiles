@@ -3,9 +3,12 @@
 [user]
 	name = Randall Bosetti
 	email = rbosetti@gmail.com
+	signingkey = /Users/rlb/.ssh/id_ed25519.pub
 [credential]
 	helper = osxkeychain
 [alias]
 	st = status
 	s = status
-        co = checkout
+	co = checkout
+[gpg]
+	format = ssh
